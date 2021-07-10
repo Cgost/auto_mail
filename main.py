@@ -3,8 +3,8 @@ import smtplib
 import os
 
 # 設定寄件者
-acc = "Your Mail Account"
-password = "Your App Apssword"
+acc = "address@example.com"
+password = "password"
 
 
 def send_fun(msg, acc, password):
@@ -108,6 +108,6 @@ def rm_txt():
 	os.remove("00_filename.txt")
 
 
-
+# run
 main(acc, password)
 rm_txt()
