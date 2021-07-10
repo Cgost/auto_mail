@@ -1,5 +1,4 @@
 import email.message
-import time
 import smtplib
 import os
 
