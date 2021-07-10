@@ -3,8 +3,9 @@ import time
 import smtplib
 import os
 
-acc = "20210707Be@gmail.com"
-password = "pwpwuuhjbsdnthvg"
+# 設定寄件者
+acc = "Your Mail Account"
+password = "Your App Apssword"
 
 
 def send_fun(msg, acc, password):
@@ -36,12 +37,13 @@ def read_file(filename, acc, password):
 	send_fun(msg, acc, password)
 	msg_f.close()
 
+# 讀取文件(.csv)
 def get_info():
 	# store
 	lis = ""
 	res = []
 	# open file
-	fin = open("雨你同行 (回應).csv", "r")
+	fin = open("yourfile.csv", "r")
 	# print index
 	for lis in fin:
 		lis = lis.replace("\n", "").split(",")
@@ -52,6 +54,7 @@ def get_info():
 	# retuen
 	return res
 
+# 把文件轉換成Html格式
 def trans_main():
 	info = get_info()
 	qes = info[0]
@@ -87,6 +90,7 @@ def trans_main():
 		fname.close()
 		cnt+=1
 
+# main function
 def main(acc, password):
 	trans_main()
 	filename = open("00_filename.txt", "r")
@@ -95,7 +99,8 @@ def main(acc, password):
 		read_file(name, acc, password)
 	filename.close()
 
-def re():
+# 刪除產生的文件
+def rm_txt():
 	# remove
 	filename = open("00_filename.txt", "r")
 	for name in filename:
@@ -106,4 +111,4 @@ def re():
 
 
 main(acc, password)
-re()
+rm_txt()
